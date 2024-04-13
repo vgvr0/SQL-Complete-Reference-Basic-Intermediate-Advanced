@@ -1,5 +1,3 @@
-# SQL-resume
-
 # Librerías
 import IPython.display as display
 from IPython.core.display import Markdown
