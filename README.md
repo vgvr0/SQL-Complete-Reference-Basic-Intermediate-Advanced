@@ -8,7 +8,7 @@ Welcome to the SQL Cheat Sheet, your quick guide to basic, intermediate, and adv
 Used to select data from a database.
 ```sql
 SELECT name, surname FROM users;
-
+```
 
 # Funciones SQL Útiles
 
