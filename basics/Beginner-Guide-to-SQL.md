@@ -58,6 +58,24 @@ UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 UPDATE table_name SET column1 = (SELECT expression) WHERE condition;
 
 ```
+
+For example: 
+```sql
+-- Update specific records in the table 'employees' to set their 'status' to 'active' where 'department' is 'Sales'
+UPDATE employees SET status = 'active' WHERE department = 'Sales';
+
+-- Update multiple columns in the table 'products' to set 'price' to 10.99 and 'stock' to 100 where 'category' is 'Electronics'
+UPDATE products SET price = 10.99, stock = 100 WHERE category = 'Electronics';
+
+-- Update the table 'orders' to set the 'total_price' column based on the sum of prices from the 'order_items' table for each order, where 'order_id' matches
+UPDATE orders 
+SET total_price = (
+    SELECT SUM(price) 
+    FROM order_items 
+    WHERE order_items.order_id = orders.order_id
+) 
+WHERE condition;
+```
 ## DELETE
 The `DELETE` statement is used to delete existing records from a table.
 ```sql
