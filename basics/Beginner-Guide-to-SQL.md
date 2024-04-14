@@ -37,7 +37,7 @@ INSERT INTO table_name VALUES (value1, value2, value3, ...);
 ```
 
 ## UPDATE
-The UPDATE statement is used to modify existing records in a table.
+The `UPDATE` statement is used to modify existing records in a table.
 ```sql
 -- Update specific records
 UPDATE table_name SET column1 = value1 WHERE condition;
@@ -46,7 +46,7 @@ UPDATE table_name SET column1 = value1 WHERE condition;
 UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 ```
 ## DELETE
-The DELETE statement is used to delete existing records from a table.
+The `DELETE` statement is used to delete existing records from a table.
 ```sql
 -- Delete specific records
 DELETE FROM table_name WHERE condition;
