@@ -9,10 +9,10 @@ Welcome to the advanced section of SQL where we dive into complex functions and 
 - Pivoting Data
 - Dynamic SQL
 
-### Window Functions
+## Window Functions
 Window functions perform calculations across a set of table rows that are somehow related to the current row.
 
-## ROW_NUMBER
+### ROW_NUMBER
 Assigns a unique sequential integer to rows within a partition of a result set.
 
 ```sql
@@ -20,7 +20,7 @@ SELECT name, salary,
        ROW_NUMBER() OVER (ORDER BY salary DESC) AS salary_rank
 FROM employees;
 ```
-## RANK
+### RANK
 Assigns a rank to each row within a partition of a result set, with gaps in rank values for ties.
 
 ```sql
