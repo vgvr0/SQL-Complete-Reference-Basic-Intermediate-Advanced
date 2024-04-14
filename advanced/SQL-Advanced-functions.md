@@ -27,8 +27,8 @@ Assigns a rank to each row within a partition of a result set, with gaps in rank
 SELECT name, salary, 
        RANK() OVER (ORDER BY salary DESC) AS salary_rank
 FROM employees;
-Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
-Common Table Expressions (CTEs)
+
+## Common Table Expressions (CTEs)
 CTEs allow you to name a subquery block, making your queries more readable and modular.
 ```
 ## Simple CTE
@@ -39,8 +39,8 @@ WITH ranked_salaries AS (
     FROM employees
 )
 SELECT * FROM ranked_salaries WHERE rank <= 5;
-Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
-Recursive Queries
+
+## Recursive Queries
 Recursive queries are used to query hierarchical data or perform complex joins.
 ```
 ## Recursive CTE
@@ -56,8 +56,7 @@ WITH RECURSIVE subordinates AS (
     INNER JOIN subordinates s ON s.employee_id = e.manager_id
 )
 SELECT * FROM subordinates;
-Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
-Pivoting Data
+## Pivoting Data
 Pivoting transforms rows into columns, allowing you to perform row-to-column transposition.
 ```
 ## Using PIVOT
@@ -72,8 +71,7 @@ PIVOT
     SUM(amount)
     FOR year IN ([2020], [2021], [2022])
 ) AS pivot_table;
-Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
-Dynamic SQL
+## Dynamic SQL
 Dynamic SQL is a programming technique that allows you to build SQL statements dynamically at runtime.
 ```
 ## Executing a Dynamic Query
