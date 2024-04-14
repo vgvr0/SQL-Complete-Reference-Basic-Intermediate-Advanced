@@ -1,92 +1,127 @@
-# Commonly Used SQL Functions
+# SQL functions
 
-## 1. COUNT()
-Counts the number of rows that match the specified criteria.
-Returns the total number of non-null values in a column.
+This repository contains examples of the main categories of SQL functions, including aggregation functions, string functions, date and time functions, comparison functions, logical functions, conversion functions, and system functions.
+
+## Content
+
+- [Aggregation functions](#aggregation-functions)
+- [String functions](#string-functions)
+- [Date and time functions](#date-and-time-functions)
+- [Comparison functions](#comparison-functions)
+- [Logical functions](#logical-functions)
+- [Conversion functions](#conversion-functions)
+- [System functions](#system-functions)
+- [Window-functions](#window-functions)
+  
+## Aggregation functions
+Aggregation functions calculate summary values ​​from data sets.
+
+Example:
 ```sql
-SELECT COUNT(*) FROM employees
+SELECT SUM(salary) FROM employees;
 ```
-## 2. SUM()
-Calculates the sum of a set of values.
-Returns the total sum of a numeric column.
+Other aggregation functions include:
 ```sql
-SELECT SUM(salary) FROM employees
+SELECT AVG(price) FROM products;
+SELECT COUNT(DISTINCT customer_id) FROM orders;
+SELECT MAX(score) FROM exams;
+SELECT MIN(age) FROM users;
 ```
-## 3. AVG()
-Calculates the average value of a set of values.
-Returns the average value of a numeric column.
+## String Functions
+String functions manipulate text strings.
+
+Example:
 ```sql
-SELECT AVG(salary) FROM employees
+SELECT UPPER(name) FROM customers;
 ```
-## 4. MAX()
-Returns the maximum value in a set of values.
-Finds the highest value in a specified column.
+Other string functions include:
 ```sql
-SELECT MAX(salary) FROM employees
+SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees;
+SELECT SUBSTRING(phone_number, 1, 3) AS area_code FROM contacts;
+SELECT LENGTH(address) FROM locations;
+SELECT TRIM(LEADING ' ' FROM username) FROM accounts;
 ```
-## 5. MIN()
-Returns the minimum value in a set of values.
-Finds the lowest value in a specified column.
+## Date and Time Functions
+These functions work with date and time values.
+
+Example:
 ```sql
-SELECT MIN(salary) FROM employees
+SELECT DATE(datetime_column) FROM events;
 ```
-## 6. CONCAT()
-Concatenates two or more strings together.
-Joins multiple strings into a single string.
+Other date and time functions include:
 ```sql
-SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees
+SELECT YEAR(hire_date) FROM employees;
+SELECT MONTH(birth_date) FROM students;
+SELECT CURRENT_TIMESTAMP();
+SELECT DATEDIFF(end_date, start_date) AS duration FROM projects;
 ```
-## 7. SUBSTRING()
-Extracts a substring from a string.
-Returns a specified part of a string.
+## Comparison Functions
+Comparison functions compare values and return boolean values (TRUE or FALSE).
+
+Example:
 ```sql
-SELECT SUBSTRING(phone_number, 1, 3) AS area_code FROM employees
+SELECT * FROM users WHERE age = 30;
 ```
-## 8. LOWER()
-Converts a string to lowercase.
-Returns the string with all characters in lowercase.
+Other comparison functions include:
 ```sql
-SELECT LOWER(first_name) FROM employees
+SELECT * FROM products WHERE price > 100;
+SELECT * FROM orders WHERE status <> 'Completed';
+SELECT * FROM employees WHERE hire_date BETWEEN '2020-01-01' AND '2020-12-31';
+SELECT * FROM customers WHERE name LIKE 'J%';
 ```
-## 9. UPPER()
-Converts a string to uppercase.
-Returns the string with all characters in uppercase.
+## Logical Functions
+Logical functions perform logical operations on boolean values.
+
+Example:
 ```sql
-SELECT UPPER(last_name) FROM employees
+SELECT * FROM customers WHERE age > 18 AND city = 'New York';
 ```
-## 10. LENGTH()
-Returns the length of a string.
-Calculates the number of characters in a string.
+Other logical functions include:
 ```sql
-SELECT LENGTH(first_name) AS name_length FROM employees
+SELECT * FROM orders WHERE status = 'Pending' OR status = 'Processing';
+SELECT * FROM students WHERE NOT graduated;
+SELECT * FROM products WHERE category IN ('Electronics', 'Clothing');
+SELECT * FROM users WHERE email IS NULL;
 ```
-## 11. ROUND()
-Rounds a numeric value to a specified number of decimal places.
-Returns the rounded value of a number.
+## Conversion Functions
+Conversion functions convert values from one data type to another.
+
+Example:
 ```sql
-SELECT ROUND(salary, 2) FROM employees
+SELECT CAST(quantity AS VARCHAR) FROM inventory;
 ```
-## 12. CURRENT_DATE()
-Returns the current date.
-Retrieves the current date from the system.
+Other conversion functions include:
 ```sql
-SELECT CURRENT_DATE()
+SELECT CONVERT(price, DECIMAL(10,2)) FROM products;
+SELECT CAST(order_date AS DATE) FROM orders;
+SELECT CAST(is_active AS INTEGER) FROM users;
+SELECT CAST(CONCAT(first_name, ' ', last_name) AS CHAR(50)) FROM employees;
 ```
-## 13. CURRENT_TIME()
-Returns the current time.
-Retrieves the current time from the system.
+## System Functions
+System functions provide information about the system or database.
+
+Example:
 ```sql
-SELECT CURRENT_TIME()
+SELECT USER();
 ```
-## 14. DATE_FORMAT()
-Formats a date according to a specified format.
-Returns a formatted date string.
+Other system functions include:
 ```sql
-SELECT DATE_FORMAT(hire_date, '%Y-%m-%d') FROM employees
+SELECT DATABASE();
+SELECT VERSION();
+SELECT CURRENT_USER();
+SELECT LAST_INSERT_ID();
 ```
-## 15. GROUP_CONCAT()
-Concatenates strings from a group of rows into a single string.
-Returns a concatenated string with values from a group.
+## Window Functions
+Window functions perform calculations across a set of rows that are related to the current row.
+
+Example:
 ```sql
-SELECT department, GROUP_CONCAT(first_name) AS employees FROM employees GROUP BY department
+SELECT employee_id, department, salary, AVG(salary) OVER (PARTITION BY department) AS avg_department_salary FROM employees;
+```
+Other window functions include:
+```sql
+SELECT product_id, category, price, RANK() OVER (PARTITION BY category ORDER BY price DESC) AS price_rank FROM products;
+SELECT order_id, customer_id, order_date, LAG(order_date) OVER (PARTITION BY customer_id ORDER BY order_date) AS previous_order_date FROM orders;
+SELECT student_id, subject, score, DENSE_RANK() OVER (PARTITION BY subject ORDER BY score DESC) AS subject_rank FROM exam_results;
+SELECT sales_rep, order_date, sales_amount, SUM(sales_amount) OVER (PARTITION BY sales_rep ORDER BY order_date) AS running_total FROM sales;
 ```
