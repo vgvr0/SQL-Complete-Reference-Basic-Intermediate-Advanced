@@ -58,7 +58,6 @@ UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 UPDATE table_name SET column1 = (SELECT expression) WHERE condition;
 
 ```
-
 For example: 
 ```sql
 -- Update specific records in the table 'employees' to set their 'status' to 'active' where 'department' is 'Sales'
@@ -88,6 +87,18 @@ DELETE FROM table_name;
 -- Delete records from the table using a subquery to match values in a column with values from another table based on certain conditions
 DELETE FROM table_name WHERE column_name IN (SELECT column_name FROM another_table WHERE condition);
 
+```
+
+For example: 
+```sql
+-- Delete specific records from the table 'employees' where the 'department' is 'HR'
+DELETE FROM employees WHERE department = 'HR';
+
+-- Delete all records from the table 'customers'
+DELETE FROM customers;
+
+-- Delete records from the table 'orders' where the 'customer_id' matches the 'customer_id' in the 'customers' table where the 'country' is 'USA'
+DELETE FROM orders WHERE customer_id IN (SELECT customer_id FROM customers WHERE country = 'USA');
 ```
 ## Conclusion
 This has been a brief overview of the basic operations in SQL. With practice and time, you’ll learn to perform more complex queries and handle databases with confidence.
