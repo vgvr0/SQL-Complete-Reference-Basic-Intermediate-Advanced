@@ -36,11 +36,19 @@ Finds the highest value in a specified column.
 ```sql
 SELECT MAX(salary) FROM employees
 ```
+```sql
+-- Find the highest salary in each department
+SELECT department, MAX(salary) FROM employees GROUP BY department;
+```
 ## 5. MIN()
 Returns the minimum value in a set of values.
 Finds the lowest value in a specified column.
 ```sql
 SELECT MIN(salary) FROM employees
+```
+```sql
+-- Find the lowest salary in each department
+SELECT department, MIN(salary) FROM employees GROUP BY department;
 ```
 ## 6. CONCAT()
 Concatenates two or more strings together.
@@ -48,11 +56,19 @@ Joins multiple strings into a single string.
 ```sql
 SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees
 ```
+```sql
+-- Concatenate first name and last name with a comma separator
+SELECT CONCAT(first_name, ', ', last_name) AS full_name FROM employees;
+```
 ## 7. SUBSTRING()
 Extracts a substring from a string.
 Returns a specified part of a string.
 ```sql
 SELECT SUBSTRING(phone_number, 1, 3) AS area_code FROM employees
+```
+```sql
+-- Extract the first 5 characters of each employee's first name
+SELECT SUBSTRING(first_name, 1, 5) AS short_name FROM employees;
 ```
 ## 8. LOWER()
 Converts a string to lowercase.
@@ -60,17 +76,29 @@ Returns the string with all characters in lowercase.
 ```sql
 SELECT LOWER(first_name) FROM employees
 ```
+```sql
+-- Convert email addresses to lowercase
+SELECT LOWER(email) FROM employees;
+```
 ## 9. UPPER()
 Converts a string to uppercase.
 Returns the string with all characters in uppercase.
 ```sql
 SELECT UPPER(last_name) FROM employees
 ```
+```sql
+-- Convert department names to uppercase
+SELECT UPPER(department) FROM employees;
+```
 ## 10. LENGTH()
 Returns the length of a string.
 Calculates the number of characters in a string.
 ```sql
 SELECT LENGTH(first_name) AS name_length FROM employees
+```
+```sql
+-- Calculate the length of each employee's last name
+SELECT LENGTH(last_name) AS last_name_length FROM employees;
 ```
 ## 11. ROUND()
 Rounds a numeric value to a specified number of decimal places.
