@@ -15,6 +15,17 @@ The most fundamental operations in SQL are known as CRUD, which stands for **Cre
 The `SELECT` statement is used to select data from a database. The data returned is stored in a result table.
 
 ```sql
+-- Select all columns from a table
+SELECT * FROM table_name;
+
+-- Select specific columns from a table
+SELECT column1, column2 FROM table_name;
+
+-- Select with a condition
+SELECT * FROM table_name WHERE condition;
+```
+For example: 
+```sql
 -- Select all columns from a table named 'employees'
 SELECT * FROM employees;
 
@@ -28,6 +39,19 @@ SELECT * FROM employees WHERE department = 'Sales';
 
 ## INSERT
 The `INSERT INTO` statement is used to insert new records into a table.
+
+```sql
+-- Insert into specific columns
+INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+
+-- Insert into all columns
+INSERT INTO table_name VALUES (value1, value2, value3, ...);
+
+-- Insert multiple rows
+INSERT INTO table_name (column1, column2)
+VALUES (value1, value2), (value3, value4), (value5, value6);
+```
+For example: 
 
 ```sql
 -- Insert specific data into columns of a table named 'customers'
