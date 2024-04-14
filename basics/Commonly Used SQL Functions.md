@@ -78,11 +78,19 @@ Returns the rounded value of a number.
 ```sql
 SELECT ROUND(salary, 2) FROM employees
 ```
+```sql
+-- Round the salary to the nearest whole number
+SELECT ROUND(salary) FROM employees;
+```
 ## 12. CURRENT_DATE()
 Returns the current date.
 Retrieves the current date from the system.
 ```sql
 SELECT CURRENT_DATE()
+```
+```sql
+-- Select the current date and an employee's name
+SELECT CURRENT_DATE(), first_name FROM employees;
 ```
 ## 13. CURRENT_TIME()
 Returns the current time.
@@ -90,15 +98,27 @@ Retrieves the current time from the system.
 ```sql
 SELECT CURRENT_TIME()
 ```
+```sql
+-- Select the current time and an employee's name
+SELECT CURRENT_TIME(), first_name FROM employees;
+```
 ## 14. DATE_FORMAT()
 Formats a date according to a specified format.
 Returns a formatted date string.
 ```sql
 SELECT DATE_FORMAT(hire_date, '%Y-%m-%d') FROM employees
 ```
+```sql
+-- Format the hire date as day-month-year
+SELECT DATE_FORMAT(hire_date, '%d-%m-%Y') FROM employees;
+```
 ## 15. GROUP_CONCAT()
 Concatenates strings from a group of rows into a single string.
 Returns a concatenated string with values from a group.
 ```sql
 SELECT department, GROUP_CONCAT(first_name) AS employees FROM employees GROUP BY department
+```
+```sql
+-- Concatenate all employee names in each department separated by a semicolon
+SELECT department, GROUP_CONCAT(first_name ORDER BY first_name ASC SEPARATOR '; ') AS employees FROM employees GROUP BY department;
 ```
