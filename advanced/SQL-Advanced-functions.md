@@ -9,7 +9,7 @@ Welcome to the advanced section of SQL where we dive into complex functions and 
 - Pivoting Data
 - Dynamic SQL
 
-## Window Functions
+### Window Functions
 Window functions perform calculations across a set of table rows that are somehow related to the current row.
 
 ## ROW_NUMBER
@@ -27,11 +27,11 @@ Assigns a rank to each row within a partition of a result set, with gaps in rank
 SELECT name, salary, 
        RANK() OVER (ORDER BY salary DESC) AS salary_rank
 FROM employees;
-
+```
 ## Common Table Expressions (CTEs)
 CTEs allow you to name a subquery block, making your queries more readable and modular.
-```
-## Simple CTE
+
+### Simple CTE
 ```sql
 WITH ranked_salaries AS (
     SELECT name, salary,
@@ -39,11 +39,11 @@ WITH ranked_salaries AS (
     FROM employees
 )
 SELECT * FROM ranked_salaries WHERE rank <= 5;
-
+```
 ## Recursive Queries
 Recursive queries are used to query hierarchical data or perform complex joins.
-```
-## Recursive CTE
+
+### Recursive CTE
 
 ```sql
 WITH RECURSIVE subordinates AS (
@@ -56,10 +56,11 @@ WITH RECURSIVE subordinates AS (
     INNER JOIN subordinates s ON s.employee_id = e.manager_id
 )
 SELECT * FROM subordinates;
+```
 ## Pivoting Data
 Pivoting transforms rows into columns, allowing you to perform row-to-column transposition.
-```
-## Using PIVOT
+
+### Using PIVOT
 ```sql
 SELECT * FROM 
 (
@@ -71,10 +72,12 @@ PIVOT
     SUM(amount)
     FOR year IN ([2020], [2021], [2022])
 ) AS pivot_table;
+
+```
 ## Dynamic SQL
 Dynamic SQL is a programming technique that allows you to build SQL statements dynamically at runtime.
-```
-## Executing a Dynamic Query
+
+### Executing a Dynamic Query
 ```sql
 DECLARE @table_name NVARCHAR(100) = N'employees';
 DECLARE @sql NVARCHAR(MAX);
