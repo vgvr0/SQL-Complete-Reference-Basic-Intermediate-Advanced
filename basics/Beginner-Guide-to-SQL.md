@@ -15,55 +15,60 @@ The most fundamental operations in SQL are known as CRUD, which stands for **Cre
 The `SELECT` statement is used to select data from a database. The data returned is stored in a result table.
 
 ```sql
--- Select all columns from a table
-SELECT * FROM table_name;
+-- Select all columns from a table named 'employees'
+SELECT * FROM employees;
 
--- Select specific columns from a table
-SELECT column1, column2 FROM table_name;
+-- Select specific columns (employee ID and name) from the 'employees' table
+SELECT employee_id, employee_name FROM employees;
 
--- Select with a condition
-SELECT * FROM table_name WHERE condition;
+-- Select employees from the 'employees' table who are in the 'Sales' department
+SELECT * FROM employees WHERE department = 'Sales';
+
 ```
 
 ## INSERT
 The `INSERT INTO` statement is used to insert new records into a table.
 
 ```sql
--- Insert into specific columns
-INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+-- Insert specific data into columns of a table named 'customers'
+INSERT INTO customers (customer_name, email) VALUES ('John Doe', 'john@example.com');
 
--- Insert into all columns
-INSERT INTO table_name VALUES (value1, value2, value3, ...);
+-- Insert data into all columns of the 'customers' table
+INSERT INTO customers VALUES (1, 'Jane Smith', 'jane@example.com', 'New York');
 
--- Insert multiple rows
-INSERT INTO table_name (column1, column2)
-VALUES (value1, value2), (value3, value4), (value5, value6);
+-- Insert multiple rows into a table named 'orders'
+INSERT INTO orders (order_id, customer_id, order_date)
+VALUES 
+    (101, 1, '2024-04-14'),
+    (102, 2, '2024-04-15'),
+    (103, 3, '2024-04-16');
 
 ```
 
 ## UPDATE
 The `UPDATE` statement is used to modify existing records in a table.
 ```sql
--- Update specific records
+-- Update specific records in the table with new values for column1 where the condition is met
 UPDATE table_name SET column1 = value1 WHERE condition;
 
--- Update multiple columns
+-- Update multiple columns in the table with new values for column1 and column2 where the condition is met
 UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 
--- Update using a subquery
+-- Update the table using a subquery to set the value of column1 based on the result of the subquery, where the condition is met
 UPDATE table_name SET column1 = (SELECT expression) WHERE condition;
+
 ```
 ## DELETE
 The `DELETE` statement is used to delete existing records from a table.
 ```sql
--- Delete specific records
+-- Delete specific records from the table where the condition is met
 DELETE FROM table_name WHERE condition;
 
--- Delete all records
+-- Delete all records from the table
 DELETE FROM table_name;
 
--- Delete using a subquery
-DELETE FROM table_name WHERE column IN (SELECT column FROM another_table WHERE condition);
+-- Delete records from the table using a subquery to match values in a column with values from another table based on certain conditions
+DELETE FROM table_name WHERE column_name IN (SELECT column_name FROM another_table WHERE condition);
 
 ```
 ## Conclusion
