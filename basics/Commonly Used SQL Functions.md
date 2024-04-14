@@ -6,6 +6,10 @@ Returns the total number of non-null values in a column.
 ```sql
 SELECT COUNT(*) FROM employees
 ```
+```sql
+-- Count the number of employees in each department
+SELECT department, COUNT(*) FROM employees GROUP BY department;
+
 ## 2. SUM()
 Calculates the sum of a set of values.
 Returns the total sum of a numeric column.
