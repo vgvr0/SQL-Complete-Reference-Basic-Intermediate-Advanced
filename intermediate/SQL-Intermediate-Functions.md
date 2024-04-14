@@ -23,7 +23,7 @@ FROM orders
 INNER JOIN customers ON orders.customer_id = customers.customer_id;
 ```
 
-## LEFT JOIN
+### LEFT JOIN
 Returns all records from the left table, and the matched records from the right table.
 
 ```sql
@@ -31,14 +31,14 @@ SELECT customers.customer_name, orders.order_id
 FROM customers
 LEFT JOIN orders ON customers.customer_id = orders.customer_id;
 ```
-## RIGHT JOIN
+### RIGHT JOIN
 Returns all records from the right table, and the matched records from the left table.
 ```sql
 SELECT employees.employee_name, payroll.payroll_id
 FROM employees
 RIGHT JOIN payroll ON employees.employee_id = payroll.employee_id;
 ```
-## FULL OUTER JOIN
+### FULL OUTER JOIN
 Selects all records when there is a match in either left or right table.
 ```sql
 SELECT suppliers.supplier_name, orders.order_id
