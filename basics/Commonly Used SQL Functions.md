@@ -9,18 +9,26 @@ SELECT COUNT(*) FROM employees
 ```sql
 -- Count the number of employees in each department
 SELECT department, COUNT(*) FROM employees GROUP BY department;
-
+```
 ## 2. SUM()
 Calculates the sum of a set of values.
 Returns the total sum of a numeric column.
 ```sql
 SELECT SUM(salary) FROM employees
 ```
+```sql
+-- Calculate the total sum of salaries in each department
+SELECT department, SUM(salary) FROM employees GROUP BY department;
+```
 ## 3. AVG()
 Calculates the average value of a set of values.
 Returns the average value of a numeric column.
 ```sql
 SELECT AVG(salary) FROM employees
+```
+```sql
+-- Calculate the average salary in each department
+SELECT department, AVG(salary) FROM employees GROUP BY department;
 ```
 ## 4. MAX()
 Returns the maximum value in a set of values.
