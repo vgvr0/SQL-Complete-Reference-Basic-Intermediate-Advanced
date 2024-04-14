@@ -34,6 +34,11 @@ INSERT INTO table_name (column1, column2) VALUES (value1, value2);
 
 -- Insert into all columns
 INSERT INTO table_name VALUES (value1, value2, value3, ...);
+
+-- Insert multiple rows
+INSERT INTO table_name (column1, column2)
+VALUES (value1, value2), (value3, value4), (value5, value6);
+
 ```
 
 ## UPDATE
@@ -44,6 +49,9 @@ UPDATE table_name SET column1 = value1 WHERE condition;
 
 -- Update multiple columns
 UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+
+-- Update using a subquery
+UPDATE table_name SET column1 = (SELECT expression) WHERE condition;
 ```
 ## DELETE
 The `DELETE` statement is used to delete existing records from a table.
@@ -53,6 +61,10 @@ DELETE FROM table_name WHERE condition;
 
 -- Delete all records
 DELETE FROM table_name;
+
+-- Delete using a subquery
+DELETE FROM table_name WHERE column IN (SELECT column FROM another_table WHERE condition);
+
 ```
 ## Conclusion
 This has been a brief overview of the basic operations in SQL. With practice and time, you’ll learn to perform more complex queries and handle databases with confidence.
