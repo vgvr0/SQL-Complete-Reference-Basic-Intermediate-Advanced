@@ -1,4 +1,4 @@
-This SQL code aims to identify gaps in sequential data from an orders table. First, it creates a temporary table called "Sequences" that holds the minimum and maximum order numbers from the orders table. Then, it selects the missing sequence numbers by adding 1 to the minimum order number. It uses the "NOT EXISTS" clause to check if the next order number after the minimum doesn't exist in the orders table. This approach helps identify any gaps in the sequence of order numbers in the orders table.
+This SQL code aims to identify gaps in sequential data from an orders table. First, it creates a temporary table called `Sequences` that holds the minimum and maximum order numbers from the orders table. Then, it selects the missing sequence numbers by adding 1 to the minimum order number. It uses the `NOT EXISTS` clause to check if the next order number after the minimum doesn't exist in the orders table. This approach helps identify any gaps in the sequence of order numbers in the orders table.
 
 ```sql
 -- Create a temporary table to hold the sequence information
