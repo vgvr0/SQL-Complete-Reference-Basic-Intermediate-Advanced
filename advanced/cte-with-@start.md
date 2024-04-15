@@ -3,7 +3,7 @@ This SQL function GetRankedSalesByEmployee takes two parameters: `@startDate` an
 The function uses two Common Table Expressions (`CTEs`):
 
 `TotalSales`: Calculates the total sales amount for each employee within the given date range.
-`RankedSales`: Joins the `TotalSales` CTE with the `Employees` table to get employee details and ranks them based on the total sales amount.
+`RankedSales`: Joins the `TotalSales` `CTE` with the `Employees` table to get employee details and ranks them based on the total sales amount.
 Finally, the function returns the ranked list of employees and their total sales amount. This function can be called in a `SELECT` statement to retrieve the desired data.
 
 ```sql 
