@@ -1,0 +1,27 @@
+CREATE TABLE PatientRecords (
+    PatientID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    DateOfBirth DATE,
+    Gender CHAR(1),
+    Address TEXT,
+    PhoneNumber VARCHAR(20),
+    Email VARCHAR(255),
+    EmergencyContactName VARCHAR(255),
+    EmergencyContactPhone VARCHAR(20),
+    PrimaryPhysicianID INT,
+    InsuranceProvider VARCHAR(255),
+    InsurancePolicyNumber VARCHAR(50),
+    MedicalHistory TEXT,
+    CurrentMedications TEXT,
+    Allergies TEXT,
+    TreatmentPlans TEXT,
+    AppointmentHistory TEXT,
+    LabResults TEXT,
+    ImagingResults TEXT,
+    PrescriptionHistory TEXT,
+    BillingInformation TEXT,
+    Notes TEXT,
+    -- ... additional columns as needed ...
+    FOREIGN KEY (PrimaryPhysicianID) REFERENCES Physicians(PhysicianID)
+);
