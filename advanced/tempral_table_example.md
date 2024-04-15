@@ -4,7 +4,7 @@ It first creates a temporary table named `TempEmployees` and inserts some employ
 
 Then it performs a query to calculate the average salary for each department. Finally, it drops the temporary table to clean up the database. 
 
-´´´sql
+```sql
 -- Create a temporary table
 -- This command creates a new temporary table named TempEmployees with five columns.
 CREATE TEMPORARY TABLE TempEmployees
