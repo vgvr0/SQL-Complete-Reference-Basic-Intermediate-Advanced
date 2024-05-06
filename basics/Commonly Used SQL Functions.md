@@ -1,4 +1,4 @@
-# Commonly Used SQL Functions: 
+# Commonly Used SQL Functions
 
 ## 1. COUNT()
 Counts the number of rows that match the specified criteria.
